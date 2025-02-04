@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="logo.jpg" alt="logo" class="logo"></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact</a>
+            <a href="#">Help</a>
+        </nav>
+        <div class="account-info">
+            <a href="#">Account</a>
+            <span>3 items</span>
+            <img src="dp.jpg" alt="profile picture" class="picture">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="checkout">
+            <div class="step-indicator">
+                <span class="active">Account</span> → 
+                <span>Shipping</span> → 
+                <span>Payment</span>
+            </div>
+
+            <div class="account-section">
+                <h2>Account details</h2>
+                <label>Email address</label>
+                <input type="email" placeholder="Email@myemail.com">
+                
+                <label>Password</label>
+                <input type="password" placeholder="">
+                
+                <div class="buttons">
+                    <button class="register">Register for account</button>
+                    <button class="login">Login</button>
+                </div>
+
+                <div class="buttons">
+                    <button class="cancel">Cancel order</button>
+                    <button class="shipping">Shipping details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="product">
+                
+                <div>
+                    <p><img src="Wireless.jpg" alt="Headphones" class="picture2"></p>
+                    <p><strong>Sony wireless headphones</strong></p>
+                    <p>£320.45</p>
+                    <input type="number" value="1">
+                </div>
+               
+            </div>
+
+            <label>Gift Card / Discount code</label>
+            <div class="discount">
+                <input type="text" placeholder="Enter code">
+                <button>Apply</button>
+            </div>
+
+            <div class="pricing">
+                <p>Sub total: <span>£316.55</span></p>
+                <p>Tax: <span>£3.45</span></p>
+                <p>Shipping: <span>Free</span></p>
+                <p class="total">Total: <span>£320.45</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
