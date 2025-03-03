@@ -1,22 +1,17 @@
 {
-  "name": "bowlingapp",
+  "name": "ecommercets",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-      "test": "jest",
-  "build": "tsc",
-  "start": "node build/app.js",
-  "dev": "ts-node src/app.ts",
-  "watch": "tsc --watch"
-}
-
-
- ,"keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+    "dev": "tsc --watch",
+    "serve": "vite",
+    "build": "tsc",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.9",
-    "type":"module"
+    "typescript": "^5.7.3",
+    "vite": "^5.0.0"
   }
 }

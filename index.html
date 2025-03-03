@@ -3,15 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bowling Score Calculator </title>
-    <link rel="stylesheet" href="main.css">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="dist/styles.css">
 </head>
-<body>
-    <h1>Bowling Score Calculator</h1>
-    <button onclick="rollBall()" class="Roll">Roll</button>
-    <button onclick="resetGame()" class="Reset">Reset</button>
-    <div class="scoreboard" id="scoreboard"></div>
-    <p>Total Score: <span id="total-score">0</span></p>
-    <script src="dist/app.js"></script>
+<body onload="fetchData()">
+    <select title="Filter by Genre" id="genre">
+        <option value="All">All</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Historical Fiction">Historical Fiction</option>
+        <option value="Romance">Romance</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Dystopian">Dystopian</option>
+    </select>
+    
+    <select title="Sort by" id="sort-year-or-pages">
+        <option>Pages</option>
+        <option>Years</option>
+    </select>
+
+    <select title="Sort Order" id="sort-order">
+        <option>Ascending</option>
+        <option>Descending</option>
+    </select>
+    
+    <button id="myBtn">
+        Cart 
+        <img src="images/cart.jpg" alt="cart" width="20px"/>
+        <p id="items-in-cart">0</p>
+    </button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cart</h2>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="total-price">0.00</span></p>
+        </div>
+    </div>
+
+    <div class="data"></div>
+    <script type="module" src="./dist/cart.js"></script>
 </body>
 </html>
