@@ -1,0 +1,202 @@
+/* General Layout */
+.main-content {
+  margin-left: 240px; /* Sidebar width */
+  padding: 20px;
+  background-color: #1f1f1f;
+  height: 100vh;
+  overflow-y: auto; /* Make sure the main content is scrollable */
+}
+
+.sidebar {
+  position: fixed;
+  width: 240px;
+  height: 100%;
+  background-color: #645b5b;
+  color: #fff;
+  padding-top: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure sidebar stays on top */
+  overflow-y: auto; /* Make sidebar scrollable if content overflows */
+}
+
+.sidebar .brand {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.sidebar a:hover {
+  background-color: #007b7f;
+  color: white;
+}
+
+.dashboard-intro {
+  background-color: #222;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.dashboard-intro h2 {
+  font-size: 2rem;
+  color: #00c6c6;
+  margin-bottom: 10px;
+}
+
+.dashboard-intro p {
+  font-size: 1rem;
+  color: #bbb;
+  line-height: 1.6;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00c6c6;
+  margin-bottom: 15px;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid #333;
+  text-align: left;
+  font-size: 1rem;
+}
+
+th {
+  background-color: #222;
+  color: #00c6c6;
+}
+
+td {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* Zebra Stripe for Table Rows */
+.table tr:nth-child(even) {
+  background-color: #444;
+}
+
+.table tr:hover {
+  background-color: #555;
+  transition: background-color 0.3s ease;
+}
+
+/* Button Styling */
+button {
+  padding: 12px 20px;
+  background-color: #00c6c6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #007b7f;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+  background-color: #005f5f;
+}
+
+/* Add Margin Between Buttons */
+button + button {
+  margin-left: 10px;
+}
+
+/* Specific Button Styles */
+.btn-add {
+  background-color: #28a745;
+}
+
+.btn-add:hover {
+  background-color: #218838;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Input Fields */
+input[type="number"], input[type="email"], input[type="password"], input[type="text"] {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00c6c6;
+}
+
+/* Job Listing Progress Bar */
+.rating-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.rating-bar {
+  height: 100%;
+  background-color: #00c6c6;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+span {
+  font-size: 12px;
+  color: #bbb;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar a {
+    font-size: 1rem;
+  }
+}

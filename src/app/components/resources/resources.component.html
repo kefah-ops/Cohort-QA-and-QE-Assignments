@@ -1,0 +1,49 @@
+<section class="resources-section">
+    <div class="container">
+      <h1 class="section-title">Resources & Blog</h1>
+      <p class="section-subtitle">Insights and advice to boost your career and hiring practices</p>
+      
+      <div class="controls">
+        <div class="category-filters">
+          <button 
+            *ngFor="let category of categories" 
+            [class.active]="activeCategory === category"
+            (click)="setCategory(category)"
+          >
+            {{ category }}
+          </button>
+        </div>
+        
+        <div class="search-box">
+          <input 
+            type="text" 
+            [(ngModel)]="searchQuery" 
+            placeholder="Search articles..."
+          >
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+      
+      <div class="blog-grid">
+        <div *ngFor="let post of filteredPosts" class="blog-card">
+          <div class="card-image">
+            <img [src]="post.imageUrl" [alt]="post.title">
+            <span class="category-badge">{{ post.category }}</span>
+          </div>
+          <div class="card-content">
+            <h3>{{ post.title }}</h3>
+            <p class="excerpt">{{ post.excerpt }}</p>
+            <div class="meta">
+              <span class="date">{{ post.date | date:'mediumDate' }}</span>
+              <span class="read-time">{{ post.readTime }}</span>
+            </div>
+            <button class="read-more">Read Article</button>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="filteredPosts.length === 0" class="no-results">
+        <p>No articles found matching your criteria.</p>
+      </div>
+    </div>
+  </section>

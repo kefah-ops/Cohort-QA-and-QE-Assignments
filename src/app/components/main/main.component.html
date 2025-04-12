@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recruiters.net Dark Mode</title>
+  <link rel="stylesheet" href="main.component.css" />
+</head>
+<body>
+
+<div class="min-h-screen">
+  <!-- Sidebar -->
+  <aside>
+    <h2>Admin Panel</h2>
+    <a class="sidebar-link" href="#">Dashboard</a>
+    <a class="sidebar-link" href="#">Job Listings</a>
+    <a class="sidebar-link" href="#">Manage Users</a>
+    <a class="sidebar-link" href="#">Analytics</a>
+  </aside>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="font-bold text-xl">RECRUITERS.NET</div>
+      <div class="flex">
+        <a href="#" class="btn-nav">Register</a>
+        <a href="#" class="btn-nav">Log In</a>
+        <a href="#" class="btn-nav">Analytics</a>
+        <a href="#" class="btn-nav">Dashboard</a>
+      </div>
+    </nav>
+
+    <!-- Search and Filters -->
+    <section class="p-6">
+      <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+        <input type="text" placeholder="Browse jobs by category" class="w-full p-3 border rounded">
+      </div>
+
+      <!-- Example filter -->
+      <div class="bg-white border shadow-sm p-4 rounded mb-6">
+        <h4 class="font-semibold text-lg mb-2">Filter by Type</h4>
+        <p class="text-sm text-gray-700 mb-1">Choose job type: Full-time, Part-time, Remote</p>
+      </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="px-6 pb-10">
+      <div class="grid gap-8" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+        
+        <div class="job-card">
+          <h3>Frontend Developer</h3>
+          <p>Create modern interfaces using HTML, CSS, and JS.</p>
+          <p>Salary: $60,000 - $80,000</p>
+          <button>Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>Backend Developer</h3>
+          <p>Work with Node.js and databases to power the backend.</p>
+          <p>Salary: $70,000 - $90,000</p>
+          <button>Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>UX Designer</h3>
+          <p>Design user experiences that delight users and drive growth.</p>
+          <p>Salary: $50,000 - $70,000</p>
+          <button>Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>DevOps Engineer</h3>
+          <p>Build CI/CD pipelines and manage cloud infrastructure.</p>
+          <p>Salary: $85,000 - $110,000</p>
+          <button>Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>Marketing Analyst</h3>
+          <p>Analyze marketing data and optimize campaigns.</p>
+          <p>Salary: $55,000 - $75,000</p>
+          <button>Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>Product Manager</h3>
+          <p>Lead cross-functional teams to build impactful products.</p>
+          <p>Salary: $90,000 - $120,000</p>
+          <button>Apply Now</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AI Assistant -->
+    <section class="ai-assistant">
+      <h3 class="font-semibold mb-2">Ask our AI Assistant</h3>
+      <div style="display: flex; gap: 10px;">
+        <input type="text" placeholder="How can I help you today?">
+        <button>Send</button>
+      </div>
+    </section>
+    
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- register.component.html -->
+<div class="register-container">
+  <div class="register-card">
+    <h1 class="title">Create an Account</h1>
+    <p class="subtitle">Select your account type to get started</p>
+    
+    <div class="buttons-container">
+      <button class="register-button job-seeker-button" (click)="navigateToSignIn()">
+        <div class="button-content">
+          <i class="icon-user"></i>
+          <div class="button-text">
+            <span class="button-title">Job Seeker</span>
+            <span class="button-description">Find your dream job</span>
+          </div>
+        </div>
+      </button>
+      
+      <button class="register-button recruiter-button" (click)="navigateToSignIn()">
+        <div class="button-content">
+          <i class="icon-briefcase"></i>
+          <div class="button-text">
+            <span class="button-title">Recruiter</span>
+            <span class="button-description">Find the perfect candidate</span>
+          </div>
+        </div>
+      </button>
+    </div>
+    
+    <div class="login-link">
+      Already have an account? <a href="/login">Log in</a>
+    </div>
+  </div>
+</div>

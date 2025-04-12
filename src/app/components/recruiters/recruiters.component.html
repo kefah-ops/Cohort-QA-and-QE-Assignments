@@ -1,0 +1,70 @@
+<!-- recruiter-dashboard.component.html -->
+<div class="dashboard-container">
+    <div class="sidebar">
+      <div class="logo">Dashboard</div>
+      <nav class="nav-menu">
+        <div class="nav-item active">Dashboard</div>
+        <div class="nav-item">Analytics</div>
+        <div class="nav-item">Job Listings</div>
+        <div class="nav-item">Users</div>
+      </nav>
+    </div>
+    
+    <div class="main-content">
+      <h1 class="dashboard-title">Recruiter's Dashboard</h1>
+      
+      <!-- Job Listings Section -->
+      <div class="dashboard-section">
+        <h2 class="section-title">Job Listings</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Job Title</th>
+              <th>Company</th>
+              <th>Rating</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let job of jobListings">
+              <td>{{ job.title }}</td>
+              <td>{{ job.company }}</td>
+              <td>
+                <div class="rating-container">
+                  <div class="rating-bar" [style.width.%]="job.rating * 20"></div>
+                  <span class="rating-text">{{ job.rating }} / 5</span>
+                </div>
+              </td>
+              <td>
+                <button class="btn-remove" (click)="removeJob(job)">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn-add" (click)="addNewJob()">Add New Job</button>
+      </div>
+      
+      <!-- User List Section -->
+      <div class="dashboard-section">
+        <h2 class="section-title">User List</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <button class="btn-remove" (click)="removeUser(user)">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,159 @@
+/* Root Dark Theme */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+/* Layout */
+.min-h-screen {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+aside {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-right: 1px solid #2c2c2c;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+aside h2 {
+  color: #00d9a4;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-link {
+  display: block;
+  color: #aaa;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sidebar-link:hover {
+  color: #fff;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+}
+
+/* Navigation */
+nav {
+  background-color: #1e1e1e;
+  color: #00d9a4;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .btn-nav {
+  color: #00d9a4;
+  text-decoration: none;
+  margin-left: 15px;
+  padding: 6px 12px;
+  border: 1px solid #00d9a4;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav .btn-nav:hover {
+  background-color: #00d9a4;
+  color: #1e1e1e;
+}
+
+/* Cards */
+.job-card {
+  background-color: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #00d9a4;
+}
+
+.job-card h3 {
+  color: #00d9a4;
+}
+
+.job-card button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #00d9a4;
+  color: #121212;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.job-card button:hover {
+  background-color: #00b68f;
+}
+
+/* Input + Assistant */
+input[type="text"] {
+  background-color: #2e2e2e;
+  border: 1px solid #444;
+  color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #888;
+}
+
+/* AI Assistant */
+.ai-assistant {
+  background-color: #1e1e1e;
+  border-top: 1px solid #2c2c2c;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.ai-assistant input {
+  flex: 1;
+}
+
+.ai-assistant button {
+  background-color: #00d9a4;
+  color: #121212;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ai-assistant button:hover {
+  background-color: #00b68f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .min-h-screen {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    display: none;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

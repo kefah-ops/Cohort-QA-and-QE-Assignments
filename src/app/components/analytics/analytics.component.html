@@ -1,0 +1,37 @@
+<div class="dashboard-wrapper dark-mode">
+  <aside class="sidebar">
+    <h2 class="logo">Recruiters Admin</h2>
+    <nav class="nav-links">
+      <a href="#">Dashboard</a>
+      <a href="#">Jobs</a>
+      <a href="#">Users</a>
+      <a href="#">Analytics</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="dashboard-container">
+    <h2 class="dashboard-title">AI-Powered Analytics Dashboard</h2>
+
+    <div class="insight-grid">
+      <div class="insight-card" *ngFor="let insight of aiInsights">
+        <div class="insight-header">
+          <h3>{{ insight.title }}</h3>
+          <span class="value">{{ insight.value }}</span>
+        </div>
+        <p class="description">{{ insight.description }}</p>
+        <span class="trend" [ngClass]="{
+          'positive': insight.trend === 'positive',
+          'neutral': insight.trend === 'neutral',
+          'negative': insight.trend === 'negative'
+        }">
+          {{ insight.trend | titlecase }} Trend
+        </span>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="usageChart"></canvas>
+    </div>
+  </main>
+</div>

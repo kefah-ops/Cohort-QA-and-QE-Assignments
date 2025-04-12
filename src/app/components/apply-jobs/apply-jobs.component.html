@@ -1,0 +1,94 @@
+<div class="min-h-screen bg-blue-900 bg-opacity-80 flex items-center justify-center p-4"
+     style="background-image: url('assets/images/city-skyline.jpg'); background-size: cover; background-blend-mode: overlay;">
+  
+  <div class="max-w-lg w-full bg-white bg-opacity-20 backdrop-blur-sm p-6 rounded-lg shadow-lg text-white">
+    <h2 class="text-2xl font-bold mb-6 text-center">Application Form</h2>
+    
+    <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+      <div class="space-y-4">
+        <div class="form-group">
+          <label for="fullName" class="block mb-1">Full Name</label>
+          <input 
+            type="text" 
+            id="fullName" 
+            formControlName="fullName"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
+            placeholder="Enter your full name"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="block mb-1">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
+            placeholder="Enter your email address"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="location" class="block mb-1">Location</label>
+          <input 
+            type="text" 
+            id="location" 
+            formControlName="location"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
+            placeholder="Enter your location"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="skills" class="block mb-1">Skills</label>
+          <textarea 
+            id="skills" 
+            formControlName="skills"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300 h-24"
+            placeholder="List your relevant skills"
+          ></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="certifications" class="block mb-1">Certifications</label>
+          <input 
+            type="text" 
+            id="certifications" 
+            formControlName="certifications"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
+            placeholder="Enter relevant certifications"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="jobAppliedFor" class="block mb-1">Job Applied For</label>
+          <input 
+            type="text" 
+            id="jobAppliedFor" 
+            formControlName="jobAppliedFor"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
+            placeholder="Enter the position you are applying for"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="references" class="block mb-1">References/Notes</label>
+          <textarea 
+            id="references" 
+            formControlName="references"
+            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300 h-24"
+            placeholder="Additional notes or references"
+          ></textarea>
+        </div>
+        
+        <button 
+          type="submit" 
+          class="w-full px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md shadow"
+          [disabled]="!applicationForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

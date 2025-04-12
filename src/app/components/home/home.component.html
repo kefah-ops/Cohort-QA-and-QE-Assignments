@@ -1,0 +1,42 @@
+<div class="home-container">
+  <header class="navbar">
+    <div class="logo">SkillMatchAI</div>
+    <nav class="nav-links">
+      <a routerLink="/register">Register</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/analytics">Analytics</a>
+      <a routerLink="/dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Skill Match AI</h1>
+    <p>Connecting Talent with Opportunity through Smart AI Matching</p>
+    <a routerLink="/register" class="cta-btn">Get Started</a>
+  </section>
+
+  <section class="features">
+    <h2>Features</h2>
+    <div class="feature-grid">
+      <div class="feature" *ngFor="let f of features">
+        <div class="icon">{{ f.icon }}</div>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.desc }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What People Are Saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial" *ngFor="let t of testimonials">
+        <p>"{{ t.message }}"</p>
+        <span>— {{ t.name }}</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Skill Match AI. All rights reserved.</p>
+  </footer>
+</div>
