@@ -1,36 +1,36 @@
-name: Deploy to AWS S3
+name: Deploy Angular App to S3
 
 on:
   push:
     branches:
-      - main  # Trigger deployment on pushing to main branch
-  pull_request:
-    branches:
-      - main  # Trigger deployment when a PR is merged into main branch
+      - main # or main, depending on your branch name
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'  # You can set your desired node version
+          node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Angular app
         run: npm run build --prod
 
-      - name: Deploy to AWS S3
-        run: |
-          aws s3 sync ./dist/job-application/ s3://your-s3-bucket-name --delete
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
+        with:
+          args: 
         env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: 'us-east-1'  # Or any region you're using
+          AWS_REGION: 'us-east-1' # change if your bucket is in a different region
+          SOURCE_DIR: 'dist/job-application' # replace with your build folder
