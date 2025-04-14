@@ -1,80 +1,79 @@
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #216169; /* Dark background for a sleek look */
-  color: #9cf7d8; /* Light text for readability */
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-/* Header Styling */
-header {
-  background: linear-gradient(135deg, rgba(74, 80, 78, 0.7), rgba(155, 146, 134, 0.7)), url('./components/home/assets/social-media-background-network-concept-vector-16150549.jpg');
-  background-size: cover; /* Ensures the image covers the entire header */
-  background-position: center; /* Centers the image */
-  color: rgb(233, 230, 230);
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(242, 247, 245, 0.2);
-}
-
-header .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .font-bold {
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-}
-
-header .space-x-4 {
-  display: flex;
-  gap: 1.5rem;
-}
-
-header button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-header button:hover {
-  background-color: #3B82F6; /* Blue on hover */
-  transform: translateY(-2px); /* Smooth hover effect */
-}
-
-header button:active {
-  background-color: #1E3A8A;
-  transform: translateY(0);
-}
-
-/* Main Content Styling */
-main {
-  padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #216169; /* Dark background for a sleek look */
+    color: #9cf7d8; /* Light text for readability */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
   
-  background-image: url('../app/components/home/assets/c7e19c_3eddbf3c9d0044ed9996ff69cfb2798d~mv2.png');
-  background-size: cover;  /* Ensure the background covers the entire element */
-  background-position: center center; /* Center the background image */
-  min-height: 80vh;
-  overflow-y: auto;
-  background-blend-mode: overlay; /* Optional: adds a blending effect with the background color */
-  background-color: rgba(175, 240, 234, 0.8); /* Add slight transparency for a more subtle effect */
-}
-
-/* Footer Styling */
-.footer {
-  font-family: 'Segoe UI', sans-serif;
-  border-top: 1px solid #ddd;
-}
-
-.footer a {
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
+  /* Header Styling */
+  header {
+    background: linear-gradient(135deg, rgba(74, 80, 78, 0.7), rgba(155, 146, 134, 0.7)), url('./components/home/assets/image2.jpg');
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-position: center; /* Centers the image */
+    color: rgb(233, 230, 230);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(242, 247, 245, 0.2);
+  }
+  
+  header .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header .font-bold {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  header .space-x-4 {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  header button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  header button:hover {
+    background-color: #3B82F6; /* Blue on hover */
+    transform: translateY(-2px); /* Smooth hover effect */
+  }
+  
+  header button:active {
+    background-color: #1E3A8A;
+    transform: translateY(0);
+  }
+  
+  /* Main Content Styling */
+  main {
+    padding: 20px;
+    
+    background-image: url('../app/components/home/assets/image3.png');
+    background-size: cover;  /* Ensure the background covers the entire element */
+    background-position: center center; /* Center the background image */
+    min-height: 80vh;
+    overflow-y: auto;
+    background-blend-mode: overlay; /* Optional: adds a blending effect with the background color */
+    background-color: rgba(175, 240, 234, 0.8); /* Add slight transparency for a more subtle effect */
+  }
+  
+  /* Footer Styling */
+  .footer {
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
