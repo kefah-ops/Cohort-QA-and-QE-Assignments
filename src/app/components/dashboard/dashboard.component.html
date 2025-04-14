@@ -1,6 +1,6 @@
 <!-- dashboard.component.html -->
 <div class="dashboard-container">
-  <h1 class="dashboard-title">Dashboard</h1>
+  <h1 class="dashboard-title">Admin's Dashboard</h1>
   
   <div class="stats-cards">
     <div class="stat-card users-card">
@@ -18,7 +18,7 @@
         <i class="sales-icon"></i>
       </div>
       <div class="stat-info">
-        <div class="stat-label">Sales</div>
+        <div class="stat-label">Applications</div>
         <div class="stat-value">${{ totalSales | number }}</div>
       </div>
     </div>
@@ -28,7 +28,7 @@
         <i class="orders-icon"></i>
       </div>
       <div class="stat-info">
-        <div class="stat-label">Orders</div>
+        <div class="stat-label">Connections pending</div>
         <div class="stat-value">{{ totalOrders | number }}</div>
       </div>
     </div>
@@ -43,53 +43,50 @@
     </div>
     
     <div class="chart-container">
-      <h2 class="chart-title">Sessions</h2>
+      <h2 class="chart-title">Submitted applications</h2>
       <div class="chart-wrapper">
         <canvas id="sessionsChart"></canvas>
       </div>
     </div>
     
     <div class="chart-container">
-      <h2 class="chart-title">Orders</h2>
+      <h2 class="chart-title">Connections</h2>
       <div class="chart-wrapper">
         <canvas id="ordersChart"></canvas>
       </div>
     </div>
   </div>
   
-  <div class="user-management-section">
+  <div class="job-analytics-section">
     <div class="section-header">
-      <h2 class="section-title">User Management</h2>
-      <button class="new-user-btn" (click)="addNewUser()">New User</button>
+      <h2 class="section-title">Job Application Analytics</h2>
     </div>
-    
-    <div class="users-table-container">
-      <table class="users-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.role }}</td>
-            <td class="actions-cell">
-              <span class="status-indicator" [ngClass]="{'active': user.status === 'active', 'inactive': user.status === 'inactive'}"></span>
-              <button class="action-btn edit-btn" (click)="editUser(user)">
-                <i class="edit-icon"></i>
-              </button>
-              <button class="action-btn details-btn" (click)="viewUserDetails(user)">
-                <i class="details-icon"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  
+    <!-- Top Jobs Applied -->
+    <div class="analytics-group" *ngFor="let job of topJobs; let i = index">
+      <h3 class="group-title">🔥 {{ job.title }}</h3>
+      <div class="analytics-card">
+        <span><strong>{{ job.applications }}</strong> applications</span>
+        <canvas [id]="'topChart' + i" height="40"></canvas>
+      </div>
+    </div>
+  
+    <!-- Lowest Jobs Applied -->
+    <div class="analytics-group" *ngFor="let job of lowestJobs; let i = index">
+      <h3 class="group-title">🧊 {{ job.title }}</h3>
+      <div class="analytics-card">
+        <span><strong>{{ job.applications }}</strong> applications</span>
+        <canvas [id]="'lowChart' + i" height="40"></canvas>
+      </div>
+    </div>
+  
+    <!-- Top Hiring Companies -->
+    <div class="analytics-group" *ngFor="let company of topCompanies; let i = index">
+      <h3 class="group-title">🏢 {{ company.name }}</h3>
+      <div class="analytics-card">
+        <span><strong>{{ company.jobsPosted }}</strong> jobs posted</span>
+        <canvas [id]="'companyChart' + i" height="40"></canvas>
+      </div>
     </div>
   </div>
-</div>
+  

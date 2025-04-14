@@ -10,7 +10,7 @@ body {
 
 /* Header Styling */
 header {
-  background: linear-gradient(135deg, rgba(74, 78, 80, 0.7), rgba(199, 211, 218, 0.7)), url('./components/home/assets/social-media-background-network-concept-vector-16150549.jpg');
+  background: linear-gradient(135deg, rgba(74, 80, 78, 0.7), rgba(155, 146, 134, 0.7)), url('./components/home/assets/social-media-background-network-concept-vector-16150549.jpg');
   background-size: cover; /* Ensures the image covers the entire header */
   background-position: center; /* Centers the image */
   color: rgb(233, 230, 230);
@@ -57,14 +57,14 @@ header button:active {
 /* Main Content Styling */
 main {
   padding: 20px;
-  background-color: #b6b6b6; /* Light background color */
+  
   background-image: url('../app/components/home/assets/c7e19c_3eddbf3c9d0044ed9996ff69cfb2798d~mv2.png');
   background-size: cover;  /* Ensure the background covers the entire element */
   background-position: center center; /* Center the background image */
   min-height: 80vh;
   overflow-y: auto;
   background-blend-mode: overlay; /* Optional: adds a blending effect with the background color */
-  background-color: rgba(134, 240, 190, 0.8); /* Add slight transparency for a more subtle effect */
+  background-color: rgba(175, 240, 234, 0.8); /* Add slight transparency for a more subtle effect */
 }
 
 /* Footer Styling */

@@ -60,8 +60,12 @@ export class AnalyticsDashboardComponent implements OnInit {
     this.createChart();
   }
 
-  createChart(): void {
-    this.chart = new Chart('usageChart', {
+  
+    createChart(): void {
+      if (this.chart) {
+        this.chart.destroy();
+      }
+    this.chart= new Chart('usageChart', {
       type: 'line',
       data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],

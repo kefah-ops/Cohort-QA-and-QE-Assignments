@@ -53,42 +53,55 @@
           <h3>Frontend Developer</h3>
           <p>Create modern interfaces using HTML, CSS, and JS.</p>
           <p>Salary: $60,000 - $80,000</p>
-          <button>Apply Now</button>
+          <a [routerLink]="['/apply-jobs']">
+            <button>Apply Now</button>
+          </a>
         </div>
 
         <div class="job-card">
           <h3>Backend Developer</h3>
           <p>Work with Node.js and databases to power the backend.</p>
           <p>Salary: $70,000 - $90,000</p>
-          <button>Apply Now</button>
+          <a [routerLink]="['/apply-jobs']">
+            <button>Apply Now</button>
+          </a>
+          
         </div>
-
+        
         <div class="job-card">
           <h3>UX Designer</h3>
           <p>Design user experiences that delight users and drive growth.</p>
           <p>Salary: $50,000 - $70,000</p>
-          <button>Apply Now</button>
+          <a [routerLink]="['/apply-jobs']">
+            <button>Apply Now</button>
+          </a>
         </div>
 
         <div class="job-card">
           <h3>DevOps Engineer</h3>
           <p>Build CI/CD pipelines and manage cloud infrastructure.</p>
           <p>Salary: $85,000 - $110,000</p>
-          <button>Apply Now</button>
+          <a [routerLink]="['/apply-jobs']">
+            <button>Apply Now</button>
+          </a>
         </div>
 
         <div class="job-card">
           <h3>Marketing Analyst</h3>
           <p>Analyze marketing data and optimize campaigns.</p>
           <p>Salary: $55,000 - $75,000</p>
-          <button>Apply Now</button>
+          <a [routerLink]="['/apply-jobs']">
+            <button>Apply Now</button>
+          </a>
         </div>
 
         <div class="job-card">
           <h3>Product Manager</h3>
           <p>Lead cross-functional teams to build impactful products.</p>
           <p>Salary: $90,000 - $120,000</p>
-          <button>Apply Now</button>
+          <a [routerLink]="['/apply-jobs']">
+            <button>Apply Now</button>
+          </a>
         </div>
 
       </div>
@@ -99,7 +112,9 @@
       <h3 class="font-semibold mb-2">Ask our AI Assistant</h3>
       <div style="display: flex; gap: 10px;">
         <input type="text" placeholder="How can I help you today?">
-        <button>Send</button>
+        <a [routerLink]="['/apply-jobs']">
+          <button>Apply Now</button>
+        </a>
       </div>
     </section>
     

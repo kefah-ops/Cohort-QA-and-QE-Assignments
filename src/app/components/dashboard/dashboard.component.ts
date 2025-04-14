@@ -144,18 +144,67 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
   
-  addNewUser(): void {
-    console.log('Add new user clicked');
-    // Implement adding a new user
+  topJobs = [
+    { title: 'Frontend Developer', applications: 150, trend: [50, 80, 90, 120, 140, 150] },
+    { title: 'Backend Engineer', applications: 120, trend: [30, 40, 60, 90, 100, 120] }
+  ];
+
+  lowestJobs = [
+    { title: 'Technical Writer', applications: 5, trend: [10, 8, 6, 4, 5, 5] },
+    { title: 'QA Tester', applications: 8, trend: [12, 10, 9, 8, 7, 8] }
+  ];
+
+  topCompanies = [
+    { name: 'TechCorp', jobsPosted: 30, trend: [15, 18, 20, 25, 28, 30] },
+    { name: 'Innovate Ltd.', jobsPosted: 25, trend: [10, 12, 15, 20, 22, 25] }
+  ];
+
+ 
+
+  ngAfterViewInit1(): void {
+    this.topJobs.forEach((job, i) => {
+      this.renderChart(`topChart${i}`, job.trend);
+    });
+
+    this.lowestJobs.forEach((job, i) => {
+      this.renderChart(`lowChart${i}`, job.trend);
+    });
+
+    this.topCompanies.forEach((company, i) => {
+      this.renderChart(`companyChart${i}`, company.trend);
+    });
   }
-  
-  editUser(user: User): void {
-    console.log('Edit user:', user);
-    // Implement editing a user
-  }
-  
-  viewUserDetails(user: User): void {
-    console.log('View user details:', user);
-    // Implement viewing user details
+
+  renderChart(canvasId: string, data: number[]) {
+    const ctx = document.getElementById(canvasId) as HTMLCanvasElement;
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array(data.length).fill(''),
+        datasets: [
+          {
+            data,
+            borderColor: '#007b7f',
+            backgroundColor: 'rgba(0, 123, 127, 0.1)',
+            fill: true,
+            pointRadius: 0,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: false }
+        },
+        scales: {
+          x: { display: false },
+          y: { display: false }
+        }
+      }
+    });
   }
 }

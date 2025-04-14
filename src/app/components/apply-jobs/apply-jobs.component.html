@@ -1,94 +1,175 @@
-<div class="min-h-screen bg-blue-900 bg-opacity-80 flex items-center justify-center p-4"
-     style="background-image: url('assets/images/city-skyline.jpg'); background-size: cover; background-blend-mode: overlay;">
-  
-  <div class="max-w-lg w-full bg-white bg-opacity-20 backdrop-blur-sm p-6 rounded-lg shadow-lg text-white">
-    <h2 class="text-2xl font-bold mb-6 text-center">Application Form</h2>
-    
-    <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
-      <div class="space-y-4">
-        <div class="form-group">
-          <label for="fullName" class="block mb-1">Full Name</label>
-          <input 
-            type="text" 
-            id="fullName" 
-            formControlName="fullName"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
-            placeholder="Enter your full name"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="email" class="block mb-1">Email Address</label>
-          <input 
-            type="email" 
-            id="email" 
-            formControlName="email"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
-            placeholder="Enter your email address"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="location" class="block mb-1">Location</label>
-          <input 
-            type="text" 
-            id="location" 
-            formControlName="location"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
-            placeholder="Enter your location"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="skills" class="block mb-1">Skills</label>
-          <textarea 
-            id="skills" 
-            formControlName="skills"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300 h-24"
-            placeholder="List your relevant skills"
-          ></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label for="certifications" class="block mb-1">Certifications</label>
-          <input 
-            type="text" 
-            id="certifications" 
-            formControlName="certifications"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
-            placeholder="Enter relevant certifications"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="jobAppliedFor" class="block mb-1">Job Applied For</label>
-          <input 
-            type="text" 
-            id="jobAppliedFor" 
-            formControlName="jobAppliedFor"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300"
-            placeholder="Enter the position you are applying for"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="references" class="block mb-1">References/Notes</label>
-          <textarea 
-            id="references" 
-            formControlName="references"
-            class="w-full p-2 bg-transparent border border-white rounded text-white placeholder-gray-300 h-24"
-            placeholder="Additional notes or references"
-          ></textarea>
-        </div>
-        
-        <button 
-          type="submit" 
-          class="w-full px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md shadow"
-          [disabled]="!applicationForm.valid"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+<!-- apply-jobs.component.html -->
+<div class="apply-jobs-container">
+  <div class="job-header">
+    <h1>Apply for: {{ jobTitle }}</h1>
+    <a routerLink="/" class="back-button">← Back to Jobs</a>
   </div>
+
+  <div *ngIf="submitSuccess" class="success-message">
+    <h2>Application Submitted!</h2>
+    <p>Thank you for applying to the {{ jobTitle }} position. We'll review your application and get back to you shortly.</p>
+    <button routerLink="/" class="browse-more-btn">Browse More Jobs</button>
+  </div>
+
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" *ngIf="!submitSuccess">
+    <div class="form-group">
+      <label for="fullName">Full Name <span class="required">*</span></label>
+      <input 
+        type="text" 
+        id="fullName" 
+        formControlName="fullName"
+        placeholder="Enter your full name"
+        [ngClass]="{'input-error': hasError('fullName')}"
+      >
+      <div *ngIf="hasError('fullName')" class="error-message">
+        Full name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address <span class="required">*</span></label>
+      <input 
+        type="email" 
+        id="email" 
+        formControlName="email"
+        placeholder="Enter your email address"
+        [ngClass]="{'input-error': hasError('email')}"
+      >
+      <div *ngIf="hasError('email')" class="error-message">
+        Valid email is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+      <input 
+        type="tel" 
+        id="phoneNumber" 
+        formControlName="phoneNumber"
+        placeholder="Enter your phone number"
+        [ngClass]="{'input-error': hasError('phoneNumber')}"
+      >
+      <div *ngIf="hasError('phoneNumber')" class="error-message">
+        Phone number is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location <span class="required">*</span></label>
+      <input 
+        type="text" 
+        id="location" 
+        formControlName="location"
+        placeholder="City, State/Province, Country"
+        [ngClass]="{'input-error': hasError('location')}"
+      >
+      <div *ngIf="hasError('location')" class="error-message">
+        Location is required
+      </div>
+    </div>
+
+    <!-- Resume Upload Section -->
+    <div class="form-group file-upload-section">
+      <label>Resume <span class="required">*</span></label>
+      
+      <div class="file-upload-container" [ngClass]="{'has-file': resumeFileName}">
+        <div *ngIf="!resumeFileName" class="upload-prompt">
+          <span class="upload-icon">📄</span>
+          <div class="upload-text">
+            <p>Drag and drop your resume here or</p>
+            <label for="resume-upload" class="upload-button">Browse Files</label>
+          </div>
+          <input 
+            type="file" 
+            id="resume-upload" 
+            class="file-input" 
+            (change)="onResumeChange($event)"
+            accept=".pdf,.doc,.docx"
+            hidden
+          >
+        </div>
+        
+        <div *ngIf="resumeFileName" class="file-preview">
+          <div class="file-info">
+            <span class="file-icon">📄</span>
+            <span class="file-name">{{ resumeFileName }}</span>
+          </div>
+          <button type="button" class="remove-file" (click)="removeResume()">✕</button>
+        </div>
+      </div>
+      
+      <small class="hint">Required. Upload your latest resume (PDF, DOC, DOCX - 5MB max)</small>
+    </div>
+    
+    <!-- CV Upload Section (Optional) -->
+    <div class="form-group file-upload-section">
+      <label>CV (Optional)</label>
+      
+      <div class="file-upload-container" [ngClass]="{'has-file': cvFileName}">
+        <div *ngIf="!cvFileName" class="upload-prompt">
+          <span class="upload-icon">📄</span>
+          <div class="upload-text">
+            <p>Drag and drop your CV here or</p>
+            <label for="cv-upload" class="upload-button">Browse Files</label>
+          </div>
+          <input 
+            type="file" 
+            id="cv-upload" 
+            class="file-input" 
+            (change)="onCVChange($event)"
+            accept=".pdf,.doc,.docx"
+            hidden
+          >
+        </div>
+        
+        <div *ngIf="cvFileName" class="file-preview">
+          <div class="file-info">
+            <span class="file-icon">📄</span>
+            <span class="file-name">{{ cvFileName }}</span>
+          </div>
+          <button type="button" class="remove-file" (click)="removeCV()">✕</button>
+        </div>
+      </div>
+      
+      <small class="hint">Optional. Upload a detailed CV if different from resume (PDF, DOC, DOCX - 5MB max)</small>
+    </div>
+    
+    <div *ngIf="fileError" class="error-message file-error">
+      {{ fileError }}
+    </div>
+
+    <div class="form-group">
+      <label for="coverLetter">Cover Letter</label>
+      <textarea 
+        id="coverLetter" 
+        formControlName="coverLetter"
+        placeholder="Tell us why you're a good fit for this position"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="linkedinProfile">LinkedIn Profile</label>
+      <input 
+        type="url" 
+        id="linkedinProfile" 
+        formControlName="linkedinProfile"
+        placeholder="https://linkedin.com/in/yourprofile"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="portfolioUrl">Portfolio/Github URL</label>
+      <input 
+        type="url" 
+        id="portfolioUrl" 
+        formControlName="portfolioUrl"
+        placeholder="https://your-portfolio-or-github.com"
+      >
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-button">Submit Application</button>
+    </div>
+  </form>
 </div>

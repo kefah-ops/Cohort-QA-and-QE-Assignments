@@ -10,6 +10,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RecruitersComponent } from './components/recruiters/recruiters.component';
 import { SigninComponent } from './components/sign-in/sign-in.component';
 import { ResourcesComponent } from './components/resources/resources.component';
+import { JobSeekerGuard } from './components/guards/job-seeker.guard';
+import { RecruiterGuard } from './components/guards/recruiters.guard';
+import { adminGuard } from './components/guards/admin.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +29,13 @@ export const routes: Routes = [
   { path: '**', redirectTo: 'Home' },
   { path: 'sign-in', loadComponent: () => import('./components/sign-in/sign-in.component').then(m => m.SigninComponent) },
   { path: 'resources',loadComponent: () => import('./components/resources/resources.component').then(m => m.ResourcesComponent)},
-  { path: 'signup', component: SigninComponent }
+  { path: 'signup', component: SigninComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [adminGuard] },
+  { path: 'recruiter-dashboard', component: MainComponent, canActivate: [RecruiterGuard] },
+  { path: 'job-seeker-dashboard', component: MainComponent, canActivate: [JobSeekerGuard] },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'post-jobs', component: MainComponent, canActivate: [JobSeekerGuard] },
+  { path: 'recruiters', component: MainComponent, canActivate: [RecruiterGuard, JobSeekerGuard] },
 
 ];
