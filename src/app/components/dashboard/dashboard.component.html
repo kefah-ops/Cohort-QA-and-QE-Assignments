@@ -1,66 +1,95 @@
+<!-- dashboard.component.html -->
 <div class="dashboard-container">
-  <!-- View Jobs -->
-  <section class="job-section">
-    <h3 class="section-title">Job Listings</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Job Title</th>
-          <th>Company</th>
-          <th>Rating</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngIf="getJobsLength() === 0">
-          <td colspan="4">No jobs available.</td>
-        </tr>
-        <tr *ngFor="let job of jobs; let i = index">
-          <td>{{ job.title }}</td>
-          <td>{{ job.company }}</td>
-          <td>
-            <!-- Progress bar for rating -->
-            <div class="rating-bar-container">
-              <div 
-                class="rating-bar" 
-                [ngStyle]="{ width: job.rating * 20 + '%' }">
-              </div>
-            </div>
-            <span>{{ job.rating }} / 5</span>
-          </td>
-          <td>
-            <button (click)="removeJob(job.id)" class="btn-delete">Remove</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button (click)="addJob()" class="btn-add">Add New Job</button>
-  </section>
-
-  <!-- View Users -->
-  <section class="user-section">
-    <h3 class="section-title">User List</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>User Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngIf="getUsersLength() === 0">
-          <td colspan="3">No users available.</td>
-        </tr>
-        <tr *ngFor="let user of users; let i = index">
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>
-            <button (click)="removeUser(user.id)" class="btn-delete">Remove</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button (click)="addUser()" class="btn-add">Add New User</button>
-  </section>
+  <h1 class="dashboard-title">Dashboard</h1>
+  
+  <div class="stats-cards">
+    <div class="stat-card users-card">
+      <div class="stat-icon">
+        <i class="user-icon"></i>
+      </div>
+      <div class="stat-info">
+        <div class="stat-label">Total Users</div>
+        <div class="stat-value">{{ totalUsers | number }}</div>
+      </div>
+    </div>
+    
+    <div class="stat-card sales-card">
+      <div class="stat-icon">
+        <i class="sales-icon"></i>
+      </div>
+      <div class="stat-info">
+        <div class="stat-label">Sales</div>
+        <div class="stat-value">${{ totalSales | number }}</div>
+      </div>
+    </div>
+    
+    <div class="stat-card orders-card">
+      <div class="stat-icon">
+        <i class="orders-icon"></i>
+      </div>
+      <div class="stat-info">
+        <div class="stat-label">Orders</div>
+        <div class="stat-value">{{ totalOrders | number }}</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="charts-row">
+    <div class="chart-container">
+      <h2 class="chart-title">User Growth</h2>
+      <div class="chart-wrapper">
+        <canvas id="userGrowthChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="chart-container">
+      <h2 class="chart-title">Sessions</h2>
+      <div class="chart-wrapper">
+        <canvas id="sessionsChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="chart-container">
+      <h2 class="chart-title">Orders</h2>
+      <div class="chart-wrapper">
+        <canvas id="ordersChart"></canvas>
+      </div>
+    </div>
+  </div>
+  
+  <div class="user-management-section">
+    <div class="section-header">
+      <h2 class="section-title">User Management</h2>
+      <button class="new-user-btn" (click)="addNewUser()">New User</button>
+    </div>
+    
+    <div class="users-table-container">
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td class="actions-cell">
+              <span class="status-indicator" [ngClass]="{'active': user.status === 'active', 'inactive': user.status === 'inactive'}"></span>
+              <button class="action-btn edit-btn" (click)="editUser(user)">
+                <i class="edit-icon"></i>
+              </button>
+              <button class="action-btn details-btn" (click)="viewUserDetails(user)">
+                <i class="details-icon"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
